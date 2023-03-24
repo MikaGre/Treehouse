@@ -12,8 +12,6 @@ units = 'imperial'
 
 res = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city},{country}&units={units}&appid={api_key}')
 data = res.json()
-#print(json.dumps(res.json(), indent=4))
-#print(json.dumps(res['weather'][0]['description'], indent=4))
 
 weather = data['weather'][0]['main']
 temp = data['main']['temp']
@@ -29,3 +27,4 @@ with open('weather.csv', 'w') as f:
         writer.writerow(header)
         #write data
         writer.writerow(info)
+        
